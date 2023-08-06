@@ -1,0 +1,19 @@
+name: Build Image On Release
+
+on:
+  release:
+    types: [ published ]
+  pull_request:
+
+jobs:
+  call-workflow:
+    uses: thespad/actions/.github/workflows/build-image.yml@v7
+    with:
+      repo_owner: "thespad"
+      app_name: "apcupsd_exporter"
+      release_type: "github_tag"
+      release_url: "https://api.github.com/repos/mdlayher/apcupsd_exporter"
+      dockerhub_user: "thespad"
+      target-arch: "64"      
+    secrets:
+      dockerhub_password: ${{ secrets.DOCKER_PASSWORD }}

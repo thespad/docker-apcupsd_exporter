@@ -1,0 +1,19 @@
+name: Check for update and release
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '30 10 * * *'
+
+jobs:
+  call-workflow:
+    uses: thespad/actions/.github/workflows/check-and-release.yml@v7
+    with:
+      repo_owner: "thespad"
+      app_name: "apcupsd_exporter"
+      release_type: "github_tag"
+      release_url: "https://api.github.com/repos/mdlayher/apcupsd_exporter"
+      dockerhub_user: "thespad"
+    secrets:
+      repo_scoped_token: ${{ secrets.repo_scoped_token }}
+      dockerhub_password: ${{ secrets.docker_password }}
