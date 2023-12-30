@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.18 AS build-stage
+FROM ghcr.io/linuxserver/baseimage-alpine:3.19
 
 # set version label
 ARG BUILD_DATE
@@ -33,7 +33,7 @@ RUN \
   cd /tmp/apcupsd_exporter && \
   go build -o /usr/local/bin/apcupsd_exporter ./cmd/apcupsd_exporter && \
   echo "**** installed apcupsd_exporter version ${APP_VERSION} ****" && \
-  echo "**** clean up ****" && \  
+  echo "**** clean up ****" && \
   apk del --purge \
     build-dependencies && \
   rm -rf \
