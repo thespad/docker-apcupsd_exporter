@@ -53,7 +53,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - APC_HOST=
-      - APC_PORT= #optional
+      - APC_PORT=3551 #optional
     ports:
       - 9162:9162
     restart: unless-stopped
