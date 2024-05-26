@@ -7,9 +7,9 @@
 [![GitHub Stars](https://img.shields.io/github/stars/thespad/docker-apcupsd_exporter.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/thespad/docker-apcupsd_exporter)
 [![Docker Stars](https://img.shields.io/docker/stars/thespad/apcupsd_exporter.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/thespad/apcupsd_exporter)
 
-[![ci](https://img.shields.io/github/actions/workflow/status/thespad/docker-apcupsd_exporter/call-check-and-release.yml?branch=main&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Upstream%20Updates)](https://github.com/thespad/docker-apcupsd_exporter/actions/workflows/call-check-and-release.yml)
-[![ci](https://img.shields.io/github/actions/workflow/status/thespad/docker-apcupsd_exporter/call-baseimage-update.yml?branch=main&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Baseimage%20Updates)](https://github.com/thespad/docker-apcupsd_exporter/actions/workflows/call-baseimage-update.yml)
-[![ci](https://img.shields.io/github/actions/workflow/status/thespad/docker-apcupsd_exporter/call-build-image.yml?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Build%20Image)](https://github.com/thespad/docker-apcupsd_exporter/actions/workflows/call-build-image.yml)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/thespad/docker-apcupsd_exporter/call-check-and-release.yml?branch=main&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Upstream%20Updates)](https://github.com/thespad/docker-apcupsd_exporter/actions/workflows/call-check-and-release.yml)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/thespad/docker-apcupsd_exporter/call-baseimage-update.yml?branch=main&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Baseimage%20Updates)](https://github.com/thespad/docker-apcupsd_exporter/actions/workflows/call-baseimage-update.yml)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/thespad/docker-apcupsd_exporter/call-build-image.yml?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Build%20Image)](https://github.com/thespad/docker-apcupsd_exporter/actions/workflows/call-build-image.yml)
 
 [apcupsd_exporter](https://github.com/mdlayher/apcupsd_exporter) provides a Prometheus exporter for the apcupsd Network Information Server (NIS).
 
@@ -40,7 +40,6 @@ Compatible with docker-compose v2 schemas.
 
 ```yaml
 ---
-version: "2.1"
 services:
   apcupsd_exporter:
     image: ghcr.io/thespad/apcupsd_exporter
@@ -160,5 +159,6 @@ docker build \
 
 ## Versions
 
+* **26.05.24:** - Rebase to Alpine 3.20.
 * **30.12.23:** - Rebase to Alpine 3.19.
 * **06.08.23:** - Initial Release.
