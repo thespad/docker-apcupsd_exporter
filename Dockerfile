@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.19
+FROM ghcr.io/linuxserver/baseimage-alpine:3.20
 
 # set version label
 ARG BUILD_DATE
@@ -10,6 +10,8 @@ LABEL build_version="Version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="thespad"
 LABEL org.opencontainers.image.source="https://github.com/thespad/docker-apcupsd_exporter"
 LABEL org.opencontainers.image.url="https://github.com/thespad/docker-apcupsd_exporter"
+LABEL org.opencontainers.image.description="A Prometheus exporter for the apcupsd Network Information Server (NIS)."
+LABEL org.opencontainers.image.authors="thespad"
 
 ARG GOCACHE=/tmp \
     GOOS=linux \
@@ -33,6 +35,7 @@ RUN \
   cd /tmp/apcupsd_exporter && \
   go build -o /usr/local/bin/apcupsd_exporter ./cmd/apcupsd_exporter && \
   echo "**** installed apcupsd_exporter version ${APP_VERSION} ****" && \
+  printf "Version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** clean up ****" && \
   apk del --purge \
     build-dependencies && \

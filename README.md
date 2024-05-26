@@ -40,7 +40,6 @@ Compatible with docker-compose v2 schemas.
 
 ```yaml
 ---
-version: "2.1"
 services:
   apcupsd_exporter:
     image: ghcr.io/thespad/apcupsd_exporter
@@ -160,5 +159,6 @@ docker build \
 
 ## Versions
 
+* **26.05.24:** - Rebase to Alpine 3.20.
 * **30.12.23:** - Rebase to Alpine 3.19.
 * **06.08.23:** - Initial Release.
