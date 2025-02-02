@@ -30,6 +30,16 @@ Metrics are exposed at `/metrics`.
 
 See [apcupsd_exporter](https://github.com/mdlayher/apcupsd_exporter/) for more information
 
+## Read-Only Operation
+
+This image can be run with a read-only container filesystem.
+
+Running the container read-only requires mounting `/run` to tmpfs with the `exec` flag.
+
+## Non-Root Operation
+
+This image can be run with a non-root user.
+
 ## Usage
 
 Here are some example snippets to help you get started creating a container.
@@ -159,6 +169,7 @@ docker build \
 
 ## Versions
 
+* **02.02.25:** - Rebase to Alpine 3.21.
 * **26.05.24:** - Rebase to Alpine 3.20.
 * **30.12.23:** - Rebase to Alpine 3.19.
 * **06.08.23:** - Initial Release.
