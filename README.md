@@ -46,8 +46,6 @@ Here are some example snippets to help you get started creating a container.
 
 ### docker-compose ([recommended](https://docs.linuxserver.io/general/docker-compose))
 
-Compatible with docker-compose v2 schemas.
-
 ```yaml
 ---
 services:
@@ -152,7 +150,8 @@ Below are the instructions for updating containers:
 
 ### Image Update Notifications - Diun (Docker Image Update Notifier)
 
-* We recommend [Diun](https://crazymax.dev/diun/) for update notifications. Other tools that automatically update containers unattended are not recommended or supported.
+>[!TIP]
+>We recommend [Diun](https://crazymax.dev/diun/) for update notifications. Other tools that automatically update containers unattended are not recommended or supported.
 
 ## Building locally
 
@@ -165,6 +164,12 @@ docker build \
   --no-cache \
   --pull \
   -t ghcr.io/thespad/apcupsd_exporter:latest .
+```
+
+The arm variants can be built on x86_64 hardware and vice versa using `lscr.io/linuxserver/qemu-static`
+
+```bash
+docker run --rm --privileged lscr.io/linuxserver/qemu-static --reset
 ```
 
 ## Versions
