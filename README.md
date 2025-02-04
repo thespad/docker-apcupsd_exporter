@@ -30,13 +30,21 @@ Metrics are exposed at `/metrics`.
 
 See [apcupsd_exporter](https://github.com/mdlayher/apcupsd_exporter/) for more information
 
+## Read-Only Operation
+
+This image can be run with a read-only container filesystem.
+
+Running the container read-only requires mounting `/run` to tmpfs with the `exec` flag.
+
+## Non-Root Operation
+
+This image can be run with a non-root user.
+
 ## Usage
 
 Here are some example snippets to help you get started creating a container.
 
 ### docker-compose ([recommended](https://docs.linuxserver.io/general/docker-compose))
-
-Compatible with docker-compose v2 schemas.
 
 ```yaml
 ---
@@ -76,7 +84,7 @@ Container images are configured using parameters passed at runtime (such as thos
 
 | Parameter | Function |
 | :----: | --- |
-| `-p 9162` | Metrics port |
+| `-p 9162:9162` | Metrics port |
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e TZ=Europe/London` | Specify a timezone to use EG America/New_York |
@@ -142,7 +150,8 @@ Below are the instructions for updating containers:
 
 ### Image Update Notifications - Diun (Docker Image Update Notifier)
 
-* We recommend [Diun](https://crazymax.dev/diun/) for update notifications. Other tools that automatically update containers unattended are not recommended or supported.
+>[!TIP]
+>We recommend [Diun](https://crazymax.dev/diun/) for update notifications. Other tools that automatically update containers unattended are not recommended or supported.
 
 ## Building locally
 
@@ -157,8 +166,15 @@ docker build \
   -t ghcr.io/thespad/apcupsd_exporter:latest .
 ```
 
+The arm variants can be built on x86_64 hardware and vice versa using `lscr.io/linuxserver/qemu-static`
+
+```bash
+docker run --rm --privileged lscr.io/linuxserver/qemu-static --reset
+```
+
 ## Versions
 
+* **02.02.25:** - Rebase to Alpine 3.21.
 * **26.05.24:** - Rebase to Alpine 3.20.
 * **30.12.23:** - Rebase to Alpine 3.19.
 * **06.08.23:** - Initial Release.
